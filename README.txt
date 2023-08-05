@@ -21,6 +21,8 @@ halomodel_meany.c:
   this is a wrapper around my hmpdf code to compute the halo model
   prediction for the monopoles.
   It is compiled into a dynamic library to be used from python.
+  NOTE: hmpdf mean_y branch, do not use python wrapper (broken),
+        may need to update source to work with newer gcc
 
 halomodel_meany.py:
   just a small python wrapper around the above dynamic library.
