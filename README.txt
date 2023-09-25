@@ -8,14 +8,14 @@ fit_cosmology_correction.py:
   uses the 1P set to fit power laws in the cosmology parameters.
   CAUTION: I recall that at some point the 1P convention was changed,
            but I don't remember if it was before or after this project.
-  NOTE: In the final version we actually didn't use these fits but
-        rather used halo-model fits.
-        These don't depend on the feedback implementation,
-        so one can universally use Eq. (B1) in the paper.
-        At the moment, I can't recall the exact reasoning why we
-        preferred this over fitting to the 1P set, but I have a plot
-        showing that the halo model power laws work very well for the 1P
-        set.
+
+rescale_LH_cosmology.py:
+  rescales the LH realizations to a reference cosmology, using
+  interpolators through the 1P set
+
+rescale_LH_cosmology_hmf.py:
+  additional rescaling, accounting for the sample variance through the
+  halo mass function.
 
 halomodel_meany.c:
   this is a wrapper around my hmpdf code to compute the halo model
@@ -38,3 +38,9 @@ cfg.py:
   When running code I would just change this file for different cases
   (not good practice, I know...)
 
+get_truth.py:
+  gets the predictions from big boxes. These need to be rescaled to the
+  fiducial CAMELS cosmology, which is being done with the halo model
+  cosmology fits.
+  We do not use the 1P fits here since they do not allow accounting for
+  all differences in parameters.
